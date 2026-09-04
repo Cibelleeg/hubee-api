@@ -1,0 +1,129 @@
+{
+  "id": "e877cf9d-2387-44c0-9bf3-326e5dbfddf3",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.usuarios": {
+      "name": "usuarios",
+      "schema": "",
+      "columns": {
+        "UUID_user": {
+          "name": "UUID_user",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "Primeiro_nome": {
+          "name": "Primeiro_nome",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Sobrenome": {
+          "name": "Sobrenome",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "E-Mail": {
+          "name": "E-Mail",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Telefone": {
+          "name": "Telefone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "Senha": {
+          "name": "Senha",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "CPF": {
+          "name": "CPF",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Data_de_nascimento": {
+          "name": "Data_de_nascimento",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Tipo_de_perfil": {
+          "name": "Tipo_de_perfil",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "Data_de_criacao": {
+          "name": "Data_de_criacao",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "Data_de_modificacao": {
+          "name": "Data_de_modificacao",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "Status": {
+          "name": "Status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'ATIVO'"
+        },
+        "Deleted_at": {
+          "name": "Deleted_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "usuarios_E-Mail_unique": {
+          "name": "usuarios_E-Mail_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "E-Mail"
+          ]
+        },
+        "usuarios_CPF_unique": {
+          "name": "usuarios_CPF_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "CPF"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

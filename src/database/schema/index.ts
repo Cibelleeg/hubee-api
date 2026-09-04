@@ -8,3 +8,4 @@
  * Ainda não há tabelas: elas chegam nas tasks de modelagem de dados.
  */
 export {};
+export * from './usuario';
