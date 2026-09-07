@@ -5,7 +5,6 @@ import { UsuariosService } from './usuarios.service';
 describe('UsuariosController', () => {
   let controller: UsuariosController;
 
-  // Criamos um dublê do Service para isolar o Controller
   const mockUsuariosService = {
     create: jest.fn(),
     findAll: jest.fn(),

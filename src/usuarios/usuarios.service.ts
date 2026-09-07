@@ -16,7 +16,6 @@ export class UsuariosService {
     return userWithoutPassword;
   }
 
-  // CRIAR USUÁRIO 
   async create(data: CreateUsuarioDto) {
     const existingUser = await this.db.select().from(usuarios).where(
       or(eq(usuarios.email, data.email), eq(usuarios.cpf, data.cpf))
@@ -34,7 +33,6 @@ export class UsuariosService {
     return this.excludePassword(newUser);
   }
 
-  // LISTAR
   async findAll() {
     const allUsers = await this.db.select().from(usuarios).where(isNull(usuarios.deletedAt));
     return allUsers.map((user: any) => this.excludePassword(user));
@@ -47,7 +45,7 @@ export class UsuariosService {
 
     return this.excludePassword(user);
   }
-  // ATUALIZAR USUÁRIO
+
   async update(id: string, data: UpdateUsuarioDto) {
     await this.findOne(id); 
 
@@ -67,7 +65,6 @@ export class UsuariosService {
     return this.excludePassword(updatedUser);
   }
 
-  // DELETAR USUÁRIO
   async remove(id: string) {
     await this.findOne(id);
     await this.db.update(usuarios)
