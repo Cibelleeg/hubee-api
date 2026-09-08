@@ -1,8 +1,14 @@
 import { sql } from 'drizzle-orm';
-import { check, integer, pgTable, timestamp, uuid, varchar } from 'drizzle-orm/pg-core';
+import {
+  check,
+  integer,
+  pgTable,
+  timestamp,
+  uuid,
+  varchar,
+} from 'drizzle-orm/pg-core';
 import { addresses } from './address.schema';
 import { relations } from 'drizzle-orm';
-
 
 export const venues = pgTable(
   'venues',
@@ -13,8 +19,12 @@ export const venues = pgTable(
       .references(() => addresses.id, { onDelete: 'restrict' }),
     name: varchar('name', { length: 255 }).notNull(),
     maxCapacity: integer('max_capacity').notNull(),
-    createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
-    updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+    createdAt: timestamp('created_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+    updatedAt: timestamp('updated_at', { withTimezone: true })
+      .notNull()
+      .defaultNow(),
   },
   (table) => [
     check('venues_max_capacity_positive', sql`${table.maxCapacity} > 0`),
@@ -31,4 +41,3 @@ export const venuesRelations = relations(venues, ({ one }) => ({
     references: [addresses.id],
   }),
 }));
-

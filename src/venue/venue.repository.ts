@@ -1,7 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { and, eq, ilike } from 'drizzle-orm';
 import { DRIZZLE } from '../database/database.constants';
-import type { DbExecutor, DrizzleDatabase } from '../database/database.provider';
+import type {
+  DbExecutor,
+  DrizzleDatabase,
+} from '../database/database.provider';
 import { addresses, venues } from '../database/schema';
 
 export interface FindAllVenuesFilters {
@@ -16,7 +19,9 @@ export class VenueRepository {
   async findAll(filters: FindAllVenuesFilters, executor: DbExecutor = this.db) {
     const conditions = [
       filters.city ? ilike(addresses.city, filters.city) : undefined,
-      filters.state ? eq(addresses.state, filters.state.toUpperCase()) : undefined,
+      filters.state
+        ? eq(addresses.state, filters.state.toUpperCase())
+        : undefined,
     ].filter((c) => c !== undefined);
 
     return executor
@@ -33,7 +38,10 @@ export class VenueRepository {
     });
   }
 
-  async create(data: typeof venues.$inferInsert, executor: DbExecutor = this.db) {
+  async create(
+    data: typeof venues.$inferInsert,
+    executor: DbExecutor = this.db,
+  ) {
     const [venue] = await executor.insert(venues).values(data).returning();
     return venue;
   }

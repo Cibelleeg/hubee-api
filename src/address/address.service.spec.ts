@@ -5,7 +5,9 @@ import { AddressService } from './address.service';
 import { CreateAddressDto } from './dto/create-address.dto';
 import { UpdateAddressDto } from './dto/update-address.dto';
 
-function makeAddress(overrides: Partial<Awaited<ReturnType<AddressRepository['create']>>> = {}) {
+function makeAddress(
+  overrides: Partial<Awaited<ReturnType<AddressRepository['create']>>> = {},
+) {
   return {
     id: '1',
     zipCode: '50000-000',

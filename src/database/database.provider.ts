@@ -1,7 +1,11 @@
 import { Logger, Provider } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ExtractTablesWithRelations } from 'drizzle-orm';
-import { drizzle, NodePgDatabase, NodePgTransaction } from 'drizzle-orm/node-postgres';
+import {
+  drizzle,
+  NodePgDatabase,
+  NodePgTransaction,
+} from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 import { EnvironmentVariables } from '../config/env.validation';
 import { DRIZZLE, PG_POOL } from './database.constants';

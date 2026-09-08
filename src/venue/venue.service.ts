@@ -91,9 +91,7 @@ export class VenueService {
     if (dto.addressId) {
       const existing = await this.addressService.findById(dto.addressId, tx);
       if (!existing) {
-        throw new NotFoundException(
-          `Endereço ${dto.addressId} não encontrado`,
-        );
+        throw new NotFoundException(`Endereço ${dto.addressId} não encontrado`);
       }
       return dto.addressId;
     }
@@ -116,9 +114,7 @@ export class VenueService {
     if (dto.addressId) {
       const existing = await this.addressService.findById(dto.addressId, tx);
       if (!existing) {
-        throw new NotFoundException(
-          `Endereço ${dto.addressId} não encontrado`,
-        );
+        throw new NotFoundException(`Endereço ${dto.addressId} não encontrado`);
       }
       return dto.addressId;
     }

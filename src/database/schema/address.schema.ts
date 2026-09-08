@@ -10,6 +10,10 @@ export const addresses = pgTable('addresses', {
   city: varchar('city', { length: 100 }).notNull(),
   state: varchar('state', { length: 2 }).notNull(),
   country: varchar('country', { length: 100 }).notNull().default('Brasil'),
-  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
-  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+  createdAt: timestamp('created_at', { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true })
+    .notNull()
+    .defaultNow(),
 });

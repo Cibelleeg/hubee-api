@@ -1,7 +1,10 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { eq } from 'drizzle-orm';
 import { DRIZZLE } from '../database/database.constants';
-import type { DbExecutor, DrizzleDatabase } from '../database/database.provider';
+import type {
+  DbExecutor,
+  DrizzleDatabase,
+} from '../database/database.provider';
 import { addresses } from '../database/schema';
 
 @Injectable()
