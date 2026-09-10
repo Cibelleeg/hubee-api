@@ -19,7 +19,7 @@ describe('UsuariosService', () => {
         UsuariosService,
         {
           provide: DRIZZLE,
-          useValue: mockDb, 
+          useValue: mockDb,
         },
       ],
     }).compile();
