@@ -1,20 +1,34 @@
 {
+<<<<<<< HEAD
   "id": "e877cf9d-2387-44c0-9bf3-326e5dbfddf3",
+=======
+  "id": "debec92c-a7a5-42f4-b701-f24d6c05de09",
+>>>>>>> develop
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
+<<<<<<< HEAD
     "public.usuarios": {
       "name": "usuarios",
       "schema": "",
       "columns": {
         "UUID_user": {
           "name": "UUID_user",
+=======
+    "public.addresses": {
+      "name": "addresses",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+>>>>>>> develop
           "type": "uuid",
           "primaryKey": true,
           "notNull": true,
           "default": "gen_random_uuid()"
         },
+<<<<<<< HEAD
         "Primeiro_nome": {
           "name": "Primeiro_nome",
           "type": "varchar(100)",
@@ -29,10 +43,21 @@
         },
         "E-Mail": {
           "name": "E-Mail",
+=======
+        "zip_code": {
+          "name": "zip_code",
+          "type": "varchar(9)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "street": {
+          "name": "street",
+>>>>>>> develop
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
+<<<<<<< HEAD
         "Telefone": {
           "name": "Telefone",
           "type": "varchar(20)",
@@ -89,11 +114,64 @@
           "type": "timestamp",
           "primaryKey": false,
           "notNull": false
+=======
+        "number": {
+          "name": "number",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "complement": {
+          "name": "complement",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neighborhood": {
+          "name": "neighborhood",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "city": {
+          "name": "city",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "state": {
+          "name": "state",
+          "type": "varchar(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "country": {
+          "name": "country",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'Brasil'"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+>>>>>>> develop
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
+<<<<<<< HEAD
       "uniqueConstraints": {
         "usuarios_E-Mail_unique": {
           "name": "usuarios_E-Mail_unique",
@@ -113,6 +191,83 @@
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false
+=======
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.venues": {
+      "name": "venues",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "address_id": {
+          "name": "address_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "max_capacity": {
+          "name": "max_capacity",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "venues_address_id_addresses_id_fk": {
+          "name": "venues_address_id_addresses_id_fk",
+          "tableFrom": "venues",
+          "tableTo": "addresses",
+          "columnsFrom": [
+            "address_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "venues_max_capacity_positive": {
+          "name": "venues_max_capacity_positive",
+          "value": "\"venues\".\"max_capacity\" > 0"
+        }
+      },
+      "isRLSEnabled": false
+>>>>>>> develop
     }
   },
   "enums": {},
