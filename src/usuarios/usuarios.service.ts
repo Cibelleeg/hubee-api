@@ -12,7 +12,7 @@ export class UsuariosService {
   constructor(@Inject(DRIZZLE) private readonly db: any) {}
 
   private excludePassword(user: any) {
-    const { senha, ...userWithoutPassword } = user;
+    const { password: _password, ...userWithoutPassword } = user;
     return userWithoutPassword;
   }
 

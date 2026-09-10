@@ -1,49 +1,130 @@
 {
-<<<<<<< HEAD
-  "id": "e877cf9d-2387-44c0-9bf3-326e5dbfddf3",
-=======
-  "id": "debec92c-a7a5-42f4-b701-f24d6c05de09",
->>>>>>> develop
+  "id": "83efcce5-0fcc-477b-b063-676f442c6d48",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-<<<<<<< HEAD
-    "public.usuarios": {
-      "name": "usuarios",
+    "public.users": {
+      "name": "users",
       "schema": "",
       "columns": {
-        "UUID_user": {
-          "name": "UUID_user",
-=======
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "phone": {
+          "name": "phone",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password": {
+          "name": "password",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cpf": {
+          "name": "cpf",
+          "type": "varchar(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "birth_date": {
+          "name": "birth_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "profile_type": {
+          "name": "profile_type",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'ATIVO'"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
+        },
+        "deleted_at": {
+          "name": "deleted_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        },
+        "users_cpf_unique": {
+          "name": "users_cpf_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "cpf"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
     "public.addresses": {
       "name": "addresses",
       "schema": "",
       "columns": {
         "id": {
           "name": "id",
->>>>>>> develop
           "type": "uuid",
           "primaryKey": true,
           "notNull": true,
           "default": "gen_random_uuid()"
         },
-<<<<<<< HEAD
-        "Primeiro_nome": {
-          "name": "Primeiro_nome",
-          "type": "varchar(100)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Sobrenome": {
-          "name": "Sobrenome",
-          "type": "varchar(100)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "E-Mail": {
-          "name": "E-Mail",
-=======
         "zip_code": {
           "name": "zip_code",
           "type": "varchar(9)",
@@ -52,69 +133,10 @@
         },
         "street": {
           "name": "street",
->>>>>>> develop
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
-<<<<<<< HEAD
-        "Telefone": {
-          "name": "Telefone",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "Senha": {
-          "name": "Senha",
-          "type": "varchar(255)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "CPF": {
-          "name": "CPF",
-          "type": "varchar(11)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Data_de_nascimento": {
-          "name": "Data_de_nascimento",
-          "type": "date",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Tipo_de_perfil": {
-          "name": "Tipo_de_perfil",
-          "type": "varchar(50)",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "Data_de_criacao": {
-          "name": "Data_de_criacao",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "Data_de_modificacao": {
-          "name": "Data_de_modificacao",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "Status": {
-          "name": "Status",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'ATIVO'"
-        },
-        "Deleted_at": {
-          "name": "Deleted_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": false
-=======
         "number": {
           "name": "number",
           "type": "varchar(20)",
@@ -165,33 +187,11 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
->>>>>>> develop
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-<<<<<<< HEAD
-      "uniqueConstraints": {
-        "usuarios_E-Mail_unique": {
-          "name": "usuarios_E-Mail_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "E-Mail"
-          ]
-        },
-        "usuarios_CPF_unique": {
-          "name": "usuarios_CPF_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "CPF"
-          ]
-        }
-      },
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-=======
       "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
@@ -267,7 +267,6 @@
         }
       },
       "isRLSEnabled": false
->>>>>>> develop
     }
   },
   "enums": {},
