@@ -7,6 +7,7 @@ import { DatabaseModule } from './database/database.module';
 import { HealthModule } from './health/health.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { VenueModule } from './venue/venue.module';
+import { FornecedoresModule } from './fornecedores/fornecedores.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { VenueModule } from './venue/venue.module';
     HealthModule,
     UsuariosModule,
     VenueModule,
+    FornecedoresModule,
   ],
   controllers: [AppController],
   providers: [AppService],
