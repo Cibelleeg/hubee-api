@@ -9,3 +9,4 @@
  */
 export * from './address.schema';
 export * from './venue.schema';
+export * from './organization.schema';
